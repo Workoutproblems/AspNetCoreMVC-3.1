@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Welcome to book store application.</h1>
+    @{
+        int a = 5;
+    }
+    <h3>While Loop</h3>
+    <h3>---------------</h3>
+    @while (a-- > 0)
+    {
+        <h1>Hello from if block</h1>
+    }
+    @{
+        a = 11;
+    }
+
+    <h3>Switch Statement</h3>
+    <h3>----------------</h3>
+    @switch (a)
+    {
+        case 10:<h1>A is greater than 10</h1>
+            break;
+        case 11:
+        case 20: <h1>A is less thann 20</h1>
+            break;
+        default: <h1>Hit default</h1>
+            break;
+    }
+    <h3>Value of a @a</h3>
+
+    <h3>Foreach Loop</h3>
+    <h3>------------</h3>
+    @{int[] bag = new int[] { 5, 3, 6, 7, 8 }; }
+    @foreach (var item in bag)
+    {
+        <h3>@item</h3>
+    }
+
+
+
+</body>
+</html>

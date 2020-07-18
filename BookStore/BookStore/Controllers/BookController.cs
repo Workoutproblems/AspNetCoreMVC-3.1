@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,7 +27,9 @@ namespace BookStore.Controllers
 
         public ViewResult GetBook(int id) // #29
         {
-            var data = _bookRepository.GetBookById(id);
+            dynamic data = new ExpandoObject();
+            data.book = _bookRepository.GetBookById(id);
+            data.Name = "Johnny ExpandoObject";
             return View(data);
         }
 

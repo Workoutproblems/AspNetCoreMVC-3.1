@@ -24,7 +24,7 @@ namespace BookStore.Controllers
             var data = _bookRepository.GetAllBooks();
             return View(data);
         }
-
+        [Route("book-details/{id}", Name = "bookDetailsRoute")]
         public ViewResult GetBook(int id) // #29
         {
             dynamic data = new ExpandoObject();
@@ -37,6 +37,16 @@ namespace BookStore.Controllers
         {
             //return $"Book with name = {bookName} & Author = {authorName}";
             return _bookRepository.SearchBook(bookName, authorName);
+        }
+        // #41 ASP.Net Forms
+        public ViewResult AddNewBook()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ViewResult AddNewBook(BookModel mookModel)
+        {
+            return View();
         }
     }
 }

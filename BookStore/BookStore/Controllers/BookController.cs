@@ -14,9 +14,9 @@ namespace BookStore.Controllers
     {
         private readonly BookRepository _bookRepository = null;
 
-        public BookController()
+        public BookController(BookRepository bookRepository)
         {
-            _bookRepository = new BookRepository();
+            _bookRepository = bookRepository;
         }
 
         public ViewResult GetAllBooks() 
@@ -39,13 +39,20 @@ namespace BookStore.Controllers
             return _bookRepository.SearchBook(bookName, authorName);
         }
         // #41 ASP.Net Forms
-        public ViewResult AddNewBook()
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            ViewBag.IsSuccess = isSuccess;
+            ViewBag.BookId = bookId;
             return View();
         }
         [HttpPost]
-        public ViewResult AddNewBook(BookModel mookModel)
+        public IActionResult AddNewBook(BookModel bookModel)
         {
+            int id = _bookRepository.AddNewBook(bookModel);
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
+            }
             return View();
         }
     }

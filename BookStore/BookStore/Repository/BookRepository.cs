@@ -1,5 +1,6 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace BookStore.Repository
         {
             _context = context;
         }
-        public int AddNewBook(BookModel model)
+        public async Task<int> AddNewBook(BookModel model)
         {
             var newBook = new Books()
             {
@@ -30,13 +31,25 @@ namespace BookStore.Repository
 
             };
             // mapping book class
-            _context.Books.Add(newBook);
-            _context.SaveChanges();
+            //_context.Books.Add(newBook);
+            await _context.AddAsync(newBook);
+
+            //_context.SaveChanges(); #47
+            await _context.SaveChangesAsync();
 
             return newBook.Id;
         }
-        public List<BookModel> GetAllBooks()
+        public async Task<List<BookModel>> GetAllBooks()
         {
+            // #48 get data from DB
+            var allbooks = await _context.Books.ToListAsync();
+            if (allbooks?.Any() == true)
+            {
+                foreach (var books in allbooks)
+                {
+
+                }
+            }
             return DataSource();
         }
         public BookModel GetBookById(int id)

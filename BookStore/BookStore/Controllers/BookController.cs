@@ -19,17 +19,16 @@ namespace BookStore.Controllers
             _bookRepository = bookRepository;
         }
 
-        public ViewResult GetAllBooks() 
+        public async Task<ViewResult> GetAllBooks() 
         {
-            var data = _bookRepository.GetAllBooks();
+            var data = await _bookRepository.GetAllBooks();
             return View(data);
         }
+
         [Route("book-details/{id}", Name = "bookDetailsRoute")]
-        public ViewResult GetBook(int id) // #29
+        public async Task<ViewResult> GetBook(int id) // #29
         {
-            dynamic data = new ExpandoObject();
-            data.book = _bookRepository.GetBookById(id);
-            data.Name = "Johnny ExpandoObject";
+            var data = await _bookRepository.GetBookById(id);
             return View(data);
         }
 

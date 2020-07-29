@@ -14,15 +14,6 @@ namespace BookStore.Controllers
         public string PropertyName { get; set; }
         public ViewResult Index() 
         {
-            //ViewBag.Title = "Johnny";
-
-            //dynamic data = new ExpandoObject(); // #32
-            //data.Id = 1;
-            //data.Name = "Jermyy";
-
-            //ViewBag.Type = new BookModel() { Id = 5, Author = "Kevin" };
-
-            //ViewBag.Data = data;
             ViewData["property1"] = "Jhony ViewData";
 
             ViewData["book"] = new BookModel() { Author = "Johnny", Id = 19 };

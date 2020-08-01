@@ -22,19 +22,16 @@ namespace BookStore.Repository
         {
             var newBook = new Books()
             {
-                //map properties
                 Author = model.Author,
                 CreatedOn = DateTime.UtcNow,
                 Description = model.Description,
                 Title = model.Title,
-                TotalPages = model.TotalPages,
+                TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow
 
             };
-            // mapping book class
             //_context.Books.Add(newBook);
             await _context.AddAsync(newBook);
-
             //_context.SaveChanges(); #47
             await _context.SaveChangesAsync();
 

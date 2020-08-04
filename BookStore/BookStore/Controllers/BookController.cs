@@ -40,6 +40,11 @@ namespace BookStore.Controllers
         // #41 ASP.Net Forms
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            //var model = new BookModel()
+            //{
+            //    Language = "English"
+            //};
+            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
             return View();

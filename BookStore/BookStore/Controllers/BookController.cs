@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BookStore.Models;
 using BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookStore.Controllers
 {
@@ -40,11 +41,19 @@ namespace BookStore.Controllers
         // #41 ASP.Net Forms
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
-            //var model = new BookModel()
-            //{
-            //    Language = "English"
-            //};
-            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
+            var model = new BookModel()
+            {
+                Language = "2"
+            };
+            ViewBag.Language = new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = "Hindi", Value = "1"},
+                new SelectListItem(){Text = "English", Value = "2", Disabled = true},
+                new SelectListItem(){Text = "Dutch", Value = "3", Selected = true},
+                new SelectListItem(){Text = "Tamil", Value = "4", Disabled = true},
+
+            };
+
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
             return View();
@@ -61,7 +70,7 @@ namespace BookStore.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "This is my cutom error message");
+            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
 
             return View();
         }

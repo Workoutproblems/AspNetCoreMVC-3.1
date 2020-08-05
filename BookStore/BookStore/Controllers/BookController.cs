@@ -19,7 +19,7 @@ namespace BookStore.Controllers
             _bookRepository = bookRepository;
         }
 
-        public async Task<ViewResult> GetAllBooks() 
+        public async Task<ViewResult> GetAllBooks()
         {
             var data = await _bookRepository.GetAllBooks();
             return View(data);
@@ -64,6 +64,16 @@ namespace BookStore.Controllers
             ModelState.AddModelError("", "This is my cutom error message");
 
             return View();
+        }
+
+        private List<LanguageModel> GetLanguage()
+        {
+            return new List<LanguageModel>()
+            {
+                new LanguageModel() { Id = 1, Text = "Hindi" },
+                new LanguageModel() { Id = 2, Text = "English" },
+                new LanguageModel() { Id = 3, Text = "Dutch" },
+            };
         }
     }
 }

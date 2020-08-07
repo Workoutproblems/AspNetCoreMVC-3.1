@@ -15,5 +15,7 @@ namespace BookStore.Data
 
         public DbSet<Books> Books { get; set; }
 
+        public DbSet<Language> Language { get; set; } //#61 add table to DB
+
     }
 }

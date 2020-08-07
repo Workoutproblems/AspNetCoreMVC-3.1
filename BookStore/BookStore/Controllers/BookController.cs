@@ -38,21 +38,23 @@ namespace BookStore.Controllers
             //return $"Book with name = {bookName} & Author = {authorName}";
             return _bookRepository.SearchBook(bookName, authorName);
         }
-        // #41 ASP.Net Forms
+        // #41 ASP.Net Forms, Get method
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
             var model = new BookModel()
             {
-                Language = "2"
+                LanguageId = 2
             };
-            ViewBag.Language = new List<SelectListItem>()
-            {
-                new SelectListItem(){Text = "Hindi", Value = "1"},
-                new SelectListItem(){Text = "English", Value = "2", Disabled = true},
-                new SelectListItem(){Text = "Dutch", Value = "3", Selected = true},
-                new SelectListItem(){Text = "Tamil", Value = "4", Disabled = true},
 
-            };
+            //ViewBag.Language = new List<SelectListItem>()
+            //{
+            //    new SelectListItem(){Text = "Hindi", Value = "1" },
+            //    new SelectListItem(){Text = "English", Value = "2"},
+            //    new SelectListItem(){Text = "Dutch", Value = "3"},
+            //    new SelectListItem(){Text = "Tamil", Value = "4"},
+            //    new SelectListItem(){Text = "Urdu", Value = "5"},
+            //    new SelectListItem(){Text = "Chinese", Value = "6"},
+            //};
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -60,7 +62,7 @@ namespace BookStore.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
-        {   // #50
+        {   // #50 Post method
             if (ModelState.IsValid)
             {
                 int id = await _bookRepository.AddNewBook(bookModel);
@@ -70,7 +72,16 @@ namespace BookStore.Controllers
                 }
             }
 
-            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+
+            //ViewBag.Language = new List<SelectListItem>()
+            //{
+            //    new SelectListItem(){Text = "Hindi", Value = "1" },
+            //    new SelectListItem(){Text = "English", Value = "2"},
+            //    new SelectListItem(){Text = "Dutch", Value = "3"},
+            //    new SelectListItem(){Text = "Tamil", Value = "4"},
+            //    new SelectListItem(){Text = "Urdu", Value = "5"},
+            //    new SelectListItem(){Text = "Chinese", Value = "6"},
+            //};
 
             return View();
         }

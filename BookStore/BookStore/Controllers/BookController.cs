@@ -14,8 +14,10 @@ namespace BookStore.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _bookRepository = null;
+        private readonly LanguageRepository _languageRepository = null;
 
-        public BookController(BookRepository bookRepository)
+
+        public BookController(BookRepository bookRepository, LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
         }
@@ -39,12 +41,14 @@ namespace BookStore.Controllers
             return _bookRepository.SearchBook(bookName, authorName);
         }
         // #41 ASP.Net Forms, Get method
-        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
+        public async Task<ViewResult> AddNewBook(bool isSuccess = false, int bookId = 0)
         {
             var model = new BookModel()
             {
-                LanguageId = 2
+                //LanguageId = 2
             };
+
+            ViewBag.Language = await _languageRepository.GetLanguages();
 
             //ViewBag.Language = new List<SelectListItem>()
             //{
@@ -86,14 +90,14 @@ namespace BookStore.Controllers
             return View();
         }
 
-        private List<LanguageModel> GetLanguage()
-        {
-            return new List<LanguageModel>()
-            {
-                new LanguageModel() { Id = 1, Text = "Hindi" },
-                new LanguageModel() { Id = 2, Text = "English" },
-                new LanguageModel() { Id = 3, Text = "Dutch" },
-            };
-        }
+        //private List<LanguageModel> GetLanguage()
+        //{
+        //    return new List<LanguageModel>()
+        //    {
+        //        new LanguageModel() { Id = 1, Text = "Hindi" },
+        //        new LanguageModel() { Id = 2, Text = "English" },
+        //        new LanguageModel() { Id = 3, Text = "Dutch" },
+        //    };
+        //}
     }
 }

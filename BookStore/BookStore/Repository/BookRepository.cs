@@ -14,10 +14,10 @@ namespace BookStore.Repository
         private readonly BookStoreContext _context = null;
 
         // using dependency injection to initialize #46
-        public BookRepository(BookStoreContext context)
-        {
-            _context = context;
-        }
+            public BookRepository(BookStoreContext context)
+            {
+                _context = context;
+            }
         public async Task<int> AddNewBook(BookModel model)
         {
             var newBook = new Books()

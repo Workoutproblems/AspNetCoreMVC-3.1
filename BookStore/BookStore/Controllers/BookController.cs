@@ -16,10 +16,10 @@ namespace BookStore.Controllers
         private readonly BookRepository _bookRepository = null;
         private readonly LanguageRepository _languageRepository = null;
 
-
         public BookController(BookRepository bookRepository, LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
+            _languageRepository = languageRepository;
         }
 
         public async Task<ViewResult> GetAllBooks()
@@ -37,33 +37,20 @@ namespace BookStore.Controllers
 
         public List<BookModel> SearchBooks(string bookName, string authorName)
         {
-            //return $"Book with name = {bookName} & Author = {authorName}";
             return _bookRepository.SearchBook(bookName, authorName);
         }
-        // #41 ASP.Net Forms, Get method
+
         public async Task<ViewResult> AddNewBook(bool isSuccess = false, int bookId = 0)
-        {
-            var model = new BookModel()
-            {
-                //LanguageId = 2
-            };
+        {   // #41 ASP.Net Forms, Get method
+            var model = new BookModel();
 
-            ViewBag.Language = await _languageRepository.GetLanguages();
-
-            //ViewBag.Language = new List<SelectListItem>()
-            //{
-            //    new SelectListItem(){Text = "Hindi", Value = "1" },
-            //    new SelectListItem(){Text = "English", Value = "2"},
-            //    new SelectListItem(){Text = "Dutch", Value = "3"},
-            //    new SelectListItem(){Text = "Tamil", Value = "4"},
-            //    new SelectListItem(){Text = "Urdu", Value = "5"},
-            //    new SelectListItem(){Text = "Chinese", Value = "6"},
-            //};
+            ViewBag.Language = new SelectList( await _languageRepository.GetLanguages(), "Id", "Name");
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
         {   // #50 Post method
@@ -76,28 +63,9 @@ namespace BookStore.Controllers
                 }
             }
 
-
-            //ViewBag.Language = new List<SelectListItem>()
-            //{
-            //    new SelectListItem(){Text = "Hindi", Value = "1" },
-            //    new SelectListItem(){Text = "English", Value = "2"},
-            //    new SelectListItem(){Text = "Dutch", Value = "3"},
-            //    new SelectListItem(){Text = "Tamil", Value = "4"},
-            //    new SelectListItem(){Text = "Urdu", Value = "5"},
-            //    new SelectListItem(){Text = "Chinese", Value = "6"},
-            //};
+            ViewBag.Language = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name");
 
             return View();
         }
-
-        //private List<LanguageModel> GetLanguage()
-        //{
-        //    return new List<LanguageModel>()
-        //    {
-        //        new LanguageModel() { Id = 1, Text = "Hindi" },
-        //        new LanguageModel() { Id = 2, Text = "English" },
-        //        new LanguageModel() { Id = 3, Text = "Dutch" },
-        //    };
-        //}
     }
 }

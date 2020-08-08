@@ -26,7 +26,7 @@ namespace BookStore.Models
         //[Required(ErrorMessage = "Please choose the language of your book")]
         public int LanguageId { get; set; }
 
-       
+        public string Language { get; set; }
 
         // #50
         [Required(ErrorMessage = "Please enter the total pages")]

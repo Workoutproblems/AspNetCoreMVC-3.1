@@ -54,6 +54,7 @@ namespace BookStore.Repository
                         Description = book.Description,
                         Id = book.Id,
                         LanguageId = book.LanguageId,
+                        Language = book.Language.Name,
                         Title = book.Title,
                         TotalPages = book.TotalPages
                     });
@@ -63,23 +64,21 @@ namespace BookStore.Repository
         }
         public async Task<BookModel> GetBookById(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            if (book != null)
-            {
-                var bookDetails = new BookModel()
-                {
-                    Author = book.Author,
-                    Category = book.Category,
-                    Description = book.Description,
-                    Id = book.Id,
-                    LanguageId = book.LanguageId,
-                    Title = book.Title,
-                    TotalPages = book.TotalPages
-                };
-                return bookDetails;
-            }
-            return null;
+            return await _context.Books.Where(x => x.Id == id)
+                 .Select(book => new BookModel()
+                 {
+                     Author = book.Author,
+                     Category = book.Category,
+                     Description = book.Description,
+                     Id = book.Id,
+                     LanguageId = book.LanguageId,
+                     Language = book.Language.Name,
+                     Title = book.Title,
+                     TotalPages = book.TotalPages
+                 }).FirstOrDefaultAsync();
+
         }
+
         public List<BookModel> SearchBook(string title, string authorName)
         {
             return null;

@@ -27,6 +27,11 @@ namespace BookStore
             // (#22)
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            
+            //    .AddViewOptions(option => 
+            //{
+            //    option.HtmlHelperOptions.ClientValidationEnabled = false;
+            //});
 #endif
             // dependency injection for db bookcontroller #46
             services.AddScoped<BookRepository, BookRepository>();

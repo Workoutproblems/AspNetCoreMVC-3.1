@@ -21,5 +21,7 @@ namespace BookStore.Data
         public DateTime? UpdatedOn { get; set; }
 
         public Language Language { get; set; } //Books -> Language table
+
+        public ICollection<BookGallery> bookGallery { get; set; }
     }
 }

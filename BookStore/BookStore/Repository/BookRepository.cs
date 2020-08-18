@@ -31,8 +31,18 @@ namespace BookStore.Repository
                 CoverImageUrl = model.CoverImageUrl
 
             };
-            //_context.Books.Add(newBook);
-            //_context.SaveChanges(); #47
+
+            newBook.bookGallery = new List<BookGallery>();
+
+            foreach (var file in model.Gallery)
+            {
+                newBook.bookGallery.Add(new BookGallery()
+                {
+                    Name = file.Name,
+                    URL = file.URL
+                });
+            }
+
             await _context.AddAsync(newBook);
             await _context.SaveChangesAsync();
 
@@ -40,27 +50,6 @@ namespace BookStore.Repository
         }
         public async Task<List<BookModel>> GetAllBooks()
         {
-            // #48 get data from DB, convert Books data to BookModel
-            //var allbooks = await _context.Books.ToListAsync();
-            //var books = new List<BookModel>();
-            //if (allbooks?.Any() == true)
-            //{
-            //    foreach (var book in allbooks)
-            //    {   
-            //        books.Add(new BookModel()
-            //        {
-            //            Author = book.Author,
-            //            Category = book.Category,
-            //            Description = book.Description,
-            //            Id = book.Id,
-            //            LanguageId = book.LanguageId,
-            //            Language = book.Language.Name,
-            //            Title = book.Title,
-            //            TotalPages = book.TotalPages
-            //        });
-            //    }
-            //}
-            //return books;
             return await _context.Books
                 .Select(book => new BookModel()
                 {
@@ -88,7 +77,13 @@ namespace BookStore.Repository
                      Language = book.Language.Name,
                      Title = book.Title,
                      TotalPages = book.TotalPages,
-                     CoverImageUrl = book.CoverImageUrl
+                     CoverImageUrl = book.CoverImageUrl,
+                     Gallery = book.bookGallery.Select(g => new GalleryModel()
+                     {
+                         Id = g.Id,
+                         Name = g.Name,
+                         URL = g.URL
+                     }).ToList()
                  }).FirstOrDefaultAsync();
         }
 
@@ -96,19 +91,5 @@ namespace BookStore.Repository
         {
             return null;
         }
-
-        //private List<BookModel> DataSource()
-        //{
-        //    return new List<BookModel>()
-        //    {
-        //        new BookModel(){Id = 1, Title="MVC", Author="Johnny", Description="This is the description for MVC", Category="Programming", Language="English", TotalPages=124},
-        //        new BookModel(){Id = 2, Title="C#", Author="Sally",   Description="This is the description for C#", Category="Framework", Language="English", TotalPages=360},
-        //        new BookModel(){Id = 3, Title="C++", Author="Brian",  Description="This is the description for C++", Category="Programming", Language="English", TotalPages=124},
-        //        new BookModel(){Id = 4, Title="Python", Author="Peter", Description="This is the description for Python", Category="Programming", Language="English", TotalPages=124},
-        //        new BookModel(){Id = 5, Title="Java", Author="Sandy", Description="This is the description for Java", Category="Programming", Language="English", TotalPages=124},
-        //        new BookModel(){Id = 6, Title="Azure", Author="Jane", Description="This is the description for Azure", Category="Programming", Language="English", TotalPages=124}
-        //    };
-        
-        //}
     }
 }

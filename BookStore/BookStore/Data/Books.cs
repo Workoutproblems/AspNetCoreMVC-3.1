@@ -17,6 +17,8 @@ namespace BookStore.Data
         public int TotalPages { get; set; }
         public string CoverImageUrl { get; set; }
 
+        public string BookPdfUrl { get; set; }
+
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
 

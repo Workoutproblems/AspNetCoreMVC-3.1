@@ -8,25 +8,23 @@ using BookStore.Models;
 
 namespace BookStore.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
-        [ViewData]
-        public string PropertyName { get; set; }
+        //[Route("~/")]
         public ViewResult Index() 
         {
-            ViewData["property1"] = "Jhony ViewData";
-
-            ViewData["book"] = new BookModel() { Author = "Johnny", Id = 19 };
-
+            //ViewData["property1"] = "Jhony ViewData";
+            //ViewData["book"] = new BookModel() { Author = "Johnny", Id = 19 };
             return View();
         }
-        public ViewResult AboutUs()
+        [HttpGet("about-us/{name:alpha:minlength(5)}")]
+        public ViewResult AboutUs(string name)
         {
-            PropertyName = "Johnny S";
-            ViewData["PropertyName"] = PropertyName;
+            //PropertyName = "Johnny S";
+            //ViewData["PropertyName"] = PropertyName;
             return View();
         }
-
         public ViewResult ContactUs()
         {
             return View();

@@ -1,0 +1,5 @@
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\bin\Debug\netcoreapp3.1\ShopStore.Models.deps.json
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\bin\Debug\netcoreapp3.1\ShopStore.Models.dll
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.AssemblyInfoInputs.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.AssemblyInfo.cs
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.csprojAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.DataAccess\bin\Debug\netcoreapp3.1\ShopStore.DataAccess.deps.json
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.DataAccess\bin\Debug\netcoreapp3.1\ShopStore.DataAccess.dll
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.DataAccess\obj\Debug\netcoreapp3.1\ShopStore.DataAccess.csprojAssemblyReference.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.DataAccess\obj\Debug\netcoreapp3.1\ShopStore.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.DataAccess\obj\Debug\netcoreapp3.1\ShopStore.DataAccess.AssemblyInfo.cs

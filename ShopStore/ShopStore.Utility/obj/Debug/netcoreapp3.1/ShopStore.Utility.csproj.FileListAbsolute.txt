@@ -1,0 +1,9 @@
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\bin\Debug\netcoreapp3.1\ShopStore.Utility.deps.json
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\bin\Debug\netcoreapp3.1\ShopStore.Utility.dll
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\bin\Debug\netcoreapp3.1\ShopStore.Utility.pdb
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.csprojAssemblyReference.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.AssemblyInfoInputs.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.AssemblyInfo.cs
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.dll
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Utility\obj\Debug\netcoreapp3.1\ShopStore.Utility.pdb

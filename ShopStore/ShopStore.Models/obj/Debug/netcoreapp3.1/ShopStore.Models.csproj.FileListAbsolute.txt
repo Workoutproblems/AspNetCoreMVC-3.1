@@ -3,3 +3,7 @@ C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\bin\Debug\netcor
 C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.AssemblyInfoInputs.cache
 C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.AssemblyInfo.cs
 C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.csprojAssemblyReference.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\bin\Debug\netcoreapp3.1\ShopStore.Models.pdb
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.dll
+C:\Users\Home\source\Repos\BookStore\ShopStore\ShopStore.Models\obj\Debug\netcoreapp3.1\ShopStore.Models.pdb
